@@ -1,0 +1,59 @@
+<form [formGroup]="aircraftForm" class="p-4 bg-light rounded shadow-sm">
+    <h3 class="text-primary mb-4">Add Aircraft</h3>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input id="name" class="form-control" formControlName="Name" placeholder="Enter aircraft name">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Name'].hasError('required')">Name is required.</div>
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Name'].hasError('minlength')">Name must be at least 3 characters.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="manufacturer" class="form-label">Manufacturer:</label>
+            <input id="manufacturer" class="form-control" formControlName="Manufacturer" placeholder="Enter manufacturer">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Manufacturer'].hasError('required')">Manufacturer is required.</div>
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Manufacturer'].hasError('minlength')">Manufacturer must be at least 3 characters.</div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" class="form-control" formControlName="Description" placeholder="Enter a brief description"></textarea>
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Description'].hasError('required')">Description is required.</div>
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Description'].hasError('minlength')">Description must be at least 3 characters.</div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="capacity" class="form-label">Capacity:</label>
+            <input id="capacity" type="number" class="form-control" formControlName="Capacity" placeholder="Enter capacity">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Capacity'].hasError('required')">Capacity is required.</div>
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Capacity'].hasError('pattern')">Capacity must be a number.</div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="airlineUsage" class="form-label">Airline Usage:</label>
+            <input id="airlineUsage" class="form-control" formControlName="AirlineUsage" placeholder="Enter airline usage">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['AirlineUsage'].hasError('required')">Airline Usage is required.</div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label for="engineType" class="form-label">Engine Type:</label>
+            <input id="engineType" class="form-control" formControlName="EngineType" placeholder="Enter engine type">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['EngineType'].hasError('required')">Engine Type is required.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="cruisingSpeed" class="form-label">Cruising Speed:</label>
+            <input id="cruisingSpeed" type="number" class="form-control" formControlName="CruisingSpeed" placeholder="Enter cruising speed">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['CruisingSpeed'].hasError('required')">Cruising Speed is required.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label for="image" class="form-label">Image URL:</label>
+            <input id="image" type="url" class="form-control" formControlName="Image" placeholder="Enter image URL">
+            <div class="text-danger small" *ngIf="aircraftForm.controls['Image'].hasError('required')">Image is required.</div>
+        </div>
+    </div>
+
+    <button class="btn btn-success w-100 mt-3" [disabled]="aircraftForm.invalid" type="button" (click)="addAircraft()">Add Aircraft</button>
+</form>

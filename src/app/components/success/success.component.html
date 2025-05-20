@@ -1,0 +1,6 @@
+<div *ngIf="successMessage$ | async as message" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    <strong>Success!</strong> {{ message }}
+    <button type="button" class="close" (click)="closeMessage()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

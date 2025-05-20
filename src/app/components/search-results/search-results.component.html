@@ -1,0 +1,18 @@
+<div class="searchResults" *ngIf="this.closed">
+<div *ngIf="searchTriggered && filteredResults.length > 0">
+  <ul>
+    <li *ngFor="let result of filteredResults">
+      
+      {{ result.Name }}
+      {{result.Description}}
+      {{result.AirlineUsage}}
+       {{result.Manufacturer}}
+        {{result.EngineType}}
+    </li>
+  </ul>
+     
+</div>
+
+<p *ngIf="searchTriggered && filteredResults.length === 0">No results found.</p>
+      <button class="btn btn-secondary" (click)="close()">Close</button>   
+</div>

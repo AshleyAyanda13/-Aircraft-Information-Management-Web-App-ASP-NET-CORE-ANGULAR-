@@ -1,0 +1,61 @@
+<div *ngIf="pditingAirCraft" class="card my-3 shadow-sm p-4 bg-light rounded">
+    <form [formGroup]="aircraftForm">
+        <div class="card-body">
+            <h3 class="text-primary mb-4">Edit Aircraft</h3>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input id="name" class="form-control" [value]="pditingAirCraft?.Name" formControlName="Name">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Name'].hasError('required')">Name is required.</div>
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Name'].hasError('minlength')">Name must be at least 3 characters.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="manufacturer" class="form-label">Manufacturer:</label>
+                    <input id="manufacturer" class="form-control" [value]="pditingAirCraft?.Manufacturer" formControlName="Manufacturer">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Manufacturer'].hasError('required')">Manufacturer is required.</div>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea id="description" class="form-control" [value]="pditingAirCraft?.Description" formControlName="Description"></textarea>
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Description'].hasError('required')">Description is required.</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="capacity" class="form-label">Capacity:</label>
+                    <input id="capacity" type="number" class="form-control" [value]="pditingAirCraft?.Capacity" formControlName="Capacity">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Capacity'].hasError('required')">Capacity is required.</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="airlineUsage" class="form-label">Airline Usage:</label>
+                    <input id="airlineUsage" class="form-control" [value]="pditingAirCraft?.AirlineUsage" formControlName="AirlineUsage">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['AirlineUsage'].hasError('required')">Airline Usage is required.</div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="engineType" class="form-label">Engine Type:</label>
+                    <input id="engineType" class="form-control" [value]="pditingAirCraft?.EngineType" formControlName="EngineType">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['EngineType'].hasError('required')">Engine Type is required.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="cruisingSpeed" class="form-label">Cruising Speed:</label>
+                    <input id="cruisingSpeed" type="number" class="form-control" [value]="pditingAirCraft?.CruisingSpeed" formControlName="CruisingSpeed">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['CruisingSpeed'].hasError('required')">Cruising Speed is required.</div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label for="image" class="form-label">Image URL:</label>
+                    <input id="image" type="url" class="form-control" [value]="pditingAirCraft?.Image" formControlName="Image">
+                    <div class="text-danger small" *ngIf="aircraftForm.controls['Image'].hasError('required')">Image is required.</div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary mt-3" (click)="pditingAirCraft = null">Close</button>
+            <button type="submit" [disabled]="aircraftForm.invalid" (click)="Update(aircraftIdforedit)" class="btn btn-primary w-100 mt-3">Complete Edit</button>
+        </div>
+    </form>
+</div>

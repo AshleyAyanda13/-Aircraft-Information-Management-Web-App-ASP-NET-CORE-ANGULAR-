@@ -1,0 +1,37 @@
+<!-- Full-page container with gradient background -->
+<div class="container text-center py-5" style="background: linear-gradient(135deg, #007bff, #00c6ff); color: white;">
+
+    <!-- Featured Aircraft Section -->
+    <h2 class="fw-bold mb-4">🌍 Featured Aircraft</h2>
+
+    <div id="aircraftCarousel" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg" class="d-block w-100 rounded zoom-effect" alt="Airbus A340-600">
+            </div>
+            <div class="carousel-item">
+                <img src="https://airlinesfleet.com/wp-content/uploads/2019/09/SAA-South-African-Airways-ZS-SZJ-Airbus-A320-232-1024x683.jpg" class="d-block w-100 rounded zoom-effect" alt="Boeing 787">
+            </div>
+            <div class="carousel-item">
+                <img src="https://imgproc.airliners.net/photos/airliners/2/5/6/2796652.jpg?v=v40" class="d-block w-100 rounded zoom-effect" alt="Airbus A380">
+            </div>
+        </div>
+        <button class="carousel-control-prev custom-btn" type="button" data-bs-target="#aircraftCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next custom-btn" type="button" data-bs-target="#aircraftCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Airport Info Section -->
+    <h2 class="fw-bold mt-5">✈️ Real-Time Airport Info</h2>
+    <p class="text-muted mb-4 lead">Explore live departures, runway updates, and more!</p>
+
+    <div class="shadow-lg p-4 rounded bg-light border border-primary">
+        <iframe class="w-100 rounded border border-dark fade-in" height="550px" frameborder="0" scrolling="no" 
+            src="https://www.airnavradar.com/live-widget/FAOR?type=news&departuresOnly=true&runwayOnly=true&showIcao=true&map=true&photo=true&small=true">
+        </iframe>
+    </div>
+
+</div>

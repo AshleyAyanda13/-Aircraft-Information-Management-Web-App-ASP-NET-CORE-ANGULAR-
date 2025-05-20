@@ -1,0 +1,65 @@
+<div class="container mt-5">
+   
+</div>
+    <h2 class="text-center text-primary">Aircraft Types Management</h2>
+
+
+
+
+<button class="wow" (click)="CreateAircraft()">Add Aircraft Record</button>
+
+<app-success></app-success>
+
+
+    <app-create (dataUpdated)="refreshTable()" *ngIf="currentComponent==='create'"></app-create>
+     <button *ngIf="currentComponent==='create' "class="btn btn-secondary" (click)="closeCrudComponent()">Close</button>
+   <app-read *ngIf="currentComponent === 'read'" [aircraftId]="selectedAircraftId"></app-read>
+<app-edit (dataUpdated)="refreshTable()" *ngIf="currentComponent === 'edit'" [aircraftIdforedit]="selectedAircraftIdforedit"></app-edit>
+<app-delete (dataUpdated)="refreshTable()" *ngIf="currentComponent === 'delete'" [aircraftIdforDelete]="selectedAircraftIdforDelete"></app-delete>
+
+    <div class="table-responsive">
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                   
+                    <th>Aircraft Name</th>
+                    <th>Description</th>
+                    <th>Capacity</th>
+                    <th>Airline Usage</th>
+                    <th>Cruising Speed</th>
+                    <th>Manufacturer</th>
+                    <th>Engine Type</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let items of inventoryItems">            
+                  
+                    <td>{{items.Name}}</td>
+                    <td>{{items.Description}}</td>
+                    <td>{{items.Capacity}}</td>
+                    <td>{{items.AirlineUsage}}</td>
+                  <td>{{items.CruisingSpeed}}</td>
+                  <td>{{items.Manufacturer}}</td>
+                  <td>{{items.EngineType}}</td>
+                  
+                  
+                <td>
+    <img [src]="items.Image" alt="Aircraft Image" class="img-fluid" style="max-width: 100px; height: auto;">
+</td>
+
+             
+                
+                    <td>
+                        <button class="btn btn-success btn-sm" (click)="readAircraft(items.Id)">Read</button>
+
+                        <button class="btn btn-warning btn-sm" (click)="readforEditAircraft(items.Id)" >Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="readforDelete(items.Id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+

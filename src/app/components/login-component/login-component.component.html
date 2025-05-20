@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h2>Login</h2>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <p *ngIf="this.error" class="text-danger">{{this.error}}</p>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" id="email" class="form-control" formControlName="Email">
+              <div class="text-danger" *ngIf="loginForm.controls.Email.invalid && loginForm.controls.Email.touched">
+                Invalid email!
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" id="password" class="form-control" formControlName="Password">
+              <div class="text-danger" *ngIf="loginForm.controls.Password.invalid && loginForm.controls.Password.touched">
+                Password must be at least 6 characters.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+          
+          </form>
+         <p>Don't have account? Click<a routerLink="/register">Register</a></p> 
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

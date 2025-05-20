@@ -1,0 +1,12 @@
+<form class="d-flex ms-auto" [formGroup]="SearchForm" (ngSubmit)="onSearch()">
+
+
+
+                <input class="form-control rounded-pill me-2" type="search" placeholder="Search" formControlName="SearchString">
+                <button class="btn btn-success rounded-pill" type="submit">🔍</button>
+     
+           
+</form> 
+              <p class="text-danger" *ngIf="SearchForm.controls.SearchString.invalid &&showValidationErrors">
+  Search term is required and must be at least 1 character long.
+</p>        
